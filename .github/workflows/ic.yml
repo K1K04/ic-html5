@@ -10,9 +10,9 @@ jobs:
     - name: Test html5
       run: html5validator --root _build/
     - name: Install node
-      uses: actions/setup-node@v1
-      with:
-        node-version: 8
+        uses: actions/setup-node@v3
+        with:
+        node-version: 18
     - name: Install surge
       run: npm install -g surge
     - name: Deploy to kiko4da@surge.sh
