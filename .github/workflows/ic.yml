@@ -4,16 +4,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: pip
-      run: sudo  pip install html5validator
-    - name: Test html5
-      run: html5validator --root _build/
-    - name: Install node
+      - uses: actions/checkout@v1
+      - name: Install html5validator
+        run: sudo pip install html5validator
+      - name: Test html5
+        run: html5validator --root _build/
+      - name: Install node
         uses: actions/setup-node@v3
         with:
-        node-version: 18
-    - name: Install surge
-      run: npm install -g surge
-    - name: Deploy to kiko4da@surge.sh
-      run: surge ./_build/ kiko4da.surge.sh --token ${{ secrets.SURGE_TOKEN }}   
+          node-version: 18
+      - name: Install surge
+        run: npm install -g surge
+      - name: Deploy to kiko4da@surge.sh
+        run: surge ./_build/ kiko4da.surge.sh --token ${{ secrets.SURGE_TOKEN }}
